@@ -11,20 +11,44 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
     user = models.OneToOneField(USER_MODEL, null=True)
-    FAVORITE_EDITOR = (
-        ('vim', 'Vim'),
-        ('emacs', 'Emacs'),
-        ('np', 'Notepad'),
-        ('cat', 'cat > filename'),
+    AGE_GROUP = (
+        ('below18', 'Below 18'),
+        ('18_24', '18 - 24'),
+        ('25_40', '25 - 40'),
+        ('41_60', '41 - 60'),
+        ('up60', 'Above 60')
     )
 
-    favorite_movie = models.CharField(
-        verbose_name="Fav Flick",
-        max_length=100,
+    GENDER_GROUP = (
+        ('M', 'Male'),
+        ('F', 'Female'),
     )
-    favorite_editor = models.CharField(
-        verbose_name="Favorite Editor",
-        choices=FAVORITE_EDITOR,
-        blank=True, 
-        max_length=5,
+
+    TENURE_GROUP = (
+        ('0t', '0'),
+        ('1_3t','1 - 3'),
+        ('4_6t', '4 - 6'),
+        ('7_9t', '7 - 9'),
+        ('10t', '10+')
     )
+
+    your_age = models.CharField(
+        verbose_name="Age Group",
+        choices=AGE_GROUP,
+        max_length=50,
+    )
+
+    your_gender = models.CharField(
+        verbose_name="Gender",
+        choices=GENDER_GROUP,
+        max_length=50,
+    )
+
+    your_tenure = models.CharField(
+        verbose_name="Job Tenure",
+        choices=TENURE_GROUP,
+        max_length=50,
+    )
+
+
+

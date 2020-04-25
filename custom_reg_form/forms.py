@@ -7,11 +7,20 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
-        self.fields['favorite_movie'].error_messages = {
-            "required": u"Please tell us your favorite movie.",
-            "invalid": u"We're pretty sure you made that movie up.",
+        self.fields['your_age'].error_messages = {
+            "required": u"Please tell us your age group.",
+            "invalid": u"Please tell us your age group.",
+        }
+        self.fields['your_gender'].error_messages = {
+            "required": u"Please tell us your gender.",
+            "invalid": u"Please tell us your gender.",
+        }
+
+        self.fields['your_tenure'].error_messages = {
+            "required": u"Please tell us your job tenure.",
+            "invalid": u"Please tell us your job tenure.",
         }
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('favorite_editor', 'favorite_movie')
+        fields = ('your_age', 'your_gender', 'your_tenure')

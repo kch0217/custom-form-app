@@ -16,6 +16,11 @@ class ExtraInfoForm(ModelForm):
             "invalid": u"Please tell us your gender.",
         }
 
+        self.fields['your_employment'].error_messages = {
+            "required": u"Please tell us your employment sector.",
+            "invalid": u"Please tell us your employment sector.",
+        }
+
         self.fields['your_tenure'].error_messages = {
             "required": u"Please tell us your job tenure.",
             "invalid": u"Please tell us your job tenure.",
@@ -23,4 +28,4 @@ class ExtraInfoForm(ModelForm):
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('your_age', 'your_gender', 'your_tenure')
+        fields = ('your_age', 'your_gender', 'your_employment', 'your_tenure')

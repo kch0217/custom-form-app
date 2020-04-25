@@ -32,6 +32,33 @@ class ExtraInfo(models.Model):
         ('10t', '10+')
     )
 
+    EMPLOYMENT_GROUP = (
+        ('engineering', 'Engineering'),
+        ('banking_finance', 'Banking / finance'),
+        ('administration_management', 'Administration / management'),
+        ('SA_CP', 'System analysis and computer programming'),
+        ('accounting_auditing_taxation','Accounting / auditing / taxation'),
+        ('marketing_sales','Marketing / sales'),
+        ('teaching_lecturing', 'Teaching / lecturing'),
+        ('scientific_research','Scientific / research work'),
+        ('service_work', 'Service work'),
+        ('health_medical_services', 'Health / medical services'),
+        ('aircraft_and_marine', 'Aircraft and marine'),
+        ('clerical_work', 'Clerical work'),
+        ('insurance_res', 'Insurance / real estate services'),
+        ('protective_services', 'Protective services'),
+        ('economic_smw', 'Economic, statistical and mathematical work'),
+        ('merchandise', 'Merchandising / purchasing'),
+        ('art_design', 'Art and design'),
+        ('author_journalist', 'Author / journalist'),
+        ('advertising_pr', 'Advertising / public relations'),
+        ('architecture_surveying', 'Architecture / surveying'),
+        ('legal_service', 'Legal service'),
+        ('social_services','Social services'),
+        ('others', 'Others')
+
+    )
+
     your_age = models.CharField(
         verbose_name="Age Group",
         choices=AGE_GROUP,
@@ -44,11 +71,19 @@ class ExtraInfo(models.Model):
         max_length=50,
     )
 
+    your_employment = models.CharField(
+        verbose_name="Employment sector",
+        choices=EMPLOYMENT_GROUP,
+        max_length=50,
+    )
+
     your_tenure = models.CharField(
         verbose_name="Job Tenure",
         choices=TENURE_GROUP,
         max_length=50,
     )
+
+
 
 
 
